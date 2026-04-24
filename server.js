@@ -51,3 +51,7 @@ app.get('/pendaftar', async (req, res) => {
         res.json({ pesan: "Data seluruh pendaftar:", data: semuaPendaftar });
     } catch (error) { ... }
 });
+
+app.listen(PORT, () => {
+    console.log(`Server Pendaftaran berjalan di http://localhost:${PORT}`);
+});
