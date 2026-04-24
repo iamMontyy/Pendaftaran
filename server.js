@@ -43,3 +43,11 @@ app.post('/mendaftar', async (req, res) => {
         res.status(400).json({ pesan: "Gagal menambahkan maba!", error: error.message });
     }
 });
+
+app.get('/pendaftar', async (req, res) => {
+    try {
+        const semuaPendaftar = await Maba.find().populate('pilihan_prodi');
+        
+        res.json({ pesan: "Data seluruh pendaftar:", data: semuaPendaftar });
+    } catch (error) { ... }
+});
