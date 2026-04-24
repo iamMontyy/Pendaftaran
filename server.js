@@ -23,3 +23,23 @@ const mabaSchema = new mongoose.Schema({
     }
 });
 const Maba = mongoose.model('Maba', mabaSchema);
+
+app.post('/prodi', async (req, res) => {
+    try {
+        const prodiBaru = new Prodi(req.body);
+        await prodiBaru.save();
+        res.status(201).json({ pesan: "Prodi berhasil ditambahkan!", data: prodiBaru });
+    } catch (error) {
+        res.status(400).json({ pesan: "Gagal menambahkan prodi!", error: error.message });
+    }
+});
+
+app.post('/mendaftar', async (req, res) => {
+    try {
+        const mabaBaru = new Maba(req.body);
+        await mabaBaru.save();
+        res.status(201).json({ pesan: "Pendaftaran berhasil disimpan!", data: mabaBaru });
+    } catch (error) {
+        res.status(400).json({ pesan: "Gagal menambahkan maba!", error: error.message });
+    }
+});
