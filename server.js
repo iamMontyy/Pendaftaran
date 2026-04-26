@@ -47,7 +47,6 @@ app.post('/mendaftar', async (req, res) => {
 app.get('/pendaftar', async (req, res) => {
     try {
         const semuaPendaftar = await Maba.find().populate('pilihan_prodi');
-        
         res.json({ pesan: "Data seluruh pendaftar:", data: semuaPendaftar });
     } catch (error) { ... }
 });
